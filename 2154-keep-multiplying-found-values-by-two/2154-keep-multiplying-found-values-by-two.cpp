@@ -2,9 +2,9 @@ class Solution {
 public:
     int findFinalValue(vector<int>& nums, int original) {
         
-        bool check=true;
         
-        while(check)
+        
+        while(1)
         {
             int i=0;
             for(i=0;i<nums.size();i++)
