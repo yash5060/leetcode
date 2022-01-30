@@ -18,7 +18,7 @@ public:
             }
              if(i==nums.size())
             {
-                check=false;
+               break;
             }
         }
         return original;
