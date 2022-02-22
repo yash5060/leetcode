@@ -3,7 +3,8 @@ public:
     int titleToNumber(string columnTitle) {
         
         
-        long long ans;
+        long long ans=0;
+        int d;
         
         int ln=columnTitle.size();
         
@@ -12,23 +13,12 @@ public:
         for(int i=0;i<ln;i++)
         {
             int x=columnTitle[i];
-            arr[i]=x-65+1;
-        }
-        long long sum=0;
-        long long mul=1;
-        
-        for(int i=0;i<ln-1;i++)
-        {
-            mul=1;
-            for(int j=1;j<ln-i;j++)
-            {
-                mul=mul*26;
-            }
-            mul=mul*arr[i];
-            sum=sum+mul;
+            d=x-65+1;
+            ans=ans*26+d;
         }
         
-        ans=sum+arr[ln-1];
+        
+        
        
         
         return ans;
