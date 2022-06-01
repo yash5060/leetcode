@@ -1,17 +1,26 @@
+void helper(vector<int>& nums,int i,vector<int>&ans)
+{
+    if(i>=nums.size())
+    {
+        return;
+    }
+    
+    int l=ans.back();
+    ans.push_back(l+nums[i]);
+    helper(nums,i+1,ans);
+    
+    
+}
+
+
 class Solution {
 public:
     vector<int> runningSum(vector<int>& nums) {
         
-        
-        long long sum=0;
         vector<int>ans;
-        
-        for(int i=0;i<nums.size();i++)
-        {
-            sum=sum+nums[i];
-            ans.push_back(sum);
-            
-        }
+        ans.push_back(nums[0]);
+         helper(nums,1,ans);
         return ans;
+        
     }
 };
