@@ -1,32 +1,36 @@
-class Solution {
-    
-    void solve(int open, int close , string s,vector<string> &ans,int n ){
+void solver(int n1,int n2,string &s,vector<string>&ans)
+{
+    if(n1==0 &&n2==0)
+    {
+        ans.push_back(s);
+        return;
+    }
+    if(n1>0)
+    {
+        s.push_back('(');
+        solver(n1-1,n2,s,ans);
+        s.pop_back();
         
-        if(s.length()==n*2){
-            ans.push_back(s);
-            return ;
+    }
+    if(n2>0)
+    {
+        if(n1<n2)//yha pe n1<n2 aayega n ki n2<n1 kuki ye define kr rha h bachi hui parenthesis
+        {
+            s.push_back(')');
+            solver(n1,n2-1,s,ans);
+            s.pop_back();
         }
-        
-        
-        if(open<n)            
-            solve(open+1, close, s+'(' , ans,n);
-        
-        
-        if(open>close)
-            solve(open, close+1, s + ')', ans,n);
     }
     
+}
+
+class Solution {
 public:
     vector<string> generateParenthesis(int n) {
         
-        vector<string> ans;
-        
-        string s= "";
-        int open = 0;
-        int close = 0;
-        
-        
-        solve(open, close ,s, ans,n);
+        string s;
+        vector<string>ans;
+        solver(n,n,s,ans);
         return ans;
         
     }
