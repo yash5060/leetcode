@@ -16,8 +16,9 @@ public:
     {
       return dp[n];
     }
-    
-    return dp[n] = solver(n-1,dp)+solver(n-2,dp);
+    int one=solver(n-1,dp);
+    int two=solver(n-2,dp);
+    return dp[n] = one+two;
     
      
   }
