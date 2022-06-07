@@ -1,19 +1,31 @@
-class Solution {
+
+class Solution {   
 public:
-    int solve(vector<int>&nums,int i,vector<int>&dp)
+    
+    int solve (vector<int> &nums,int index,vector<int>&dp)
     {
-        if(i>=nums.size())
+        
+        if(index>=nums.size())
+        {
             return 0;
-        if(dp[i]!=-1)
-            return dp[i];
-        //take
-        int Choose= nums[i]+solve(nums,i+2,dp);
-        //don't
-        int notChoose=solve(nums,i+1,dp);
-        return dp[i]=max(Choose,notChoose);
+        }
+        if(dp[index]!=-1)
+        {
+            return dp[index];
+        }
+        int ch=nums[index]+solve(nums,index+2,dp);
+        int dch=solve(nums,index+1,dp);
+        
+        return dp[index]= max(ch,dch);
+        
+        
     }
     int rob(vector<int>& nums) {
-        vector<int>dp(nums.size(),-1);
-        return solve(nums,0,dp);
+        
+        vector<int>dp(nums.size(),-1);        
+       return solve(nums,0,dp);
+        
     }
+    
+    
 };
