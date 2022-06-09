@@ -5,8 +5,8 @@ public:
       
       int st=0;
       int ed=numbers.size()-1;
-      long long sum=0;
-      vector<int>ans;
+      int sum=0;
+      // vector<int>ans;
       
       while(st<=ed)
       {
@@ -22,11 +22,9 @@ public:
         }
         if(sum==target)
         {
-          ans.push_back(st+1);
-          ans.push_back(ed+1);
-          break;
+          return{st+1,ed+1};
         }
       }
-      return ans;  
+      return {}; 
     }
 };
