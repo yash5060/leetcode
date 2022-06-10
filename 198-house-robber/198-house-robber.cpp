@@ -12,6 +12,7 @@ public:
         if(dp[index]!=-1)
         {
             return dp[index];
+            
         }
         int ch=nums[index]+solve(nums,index+2,dp);
         int dch=solve(nums,index+1,dp);
