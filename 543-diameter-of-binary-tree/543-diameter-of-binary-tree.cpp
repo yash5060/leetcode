@@ -12,23 +12,23 @@
 class Solution {
 public:
   
-  int solve(TreeNode *root,int &maxi)
+  int solve(TreeNode* root,int &maxi)
   {
     if(root==NULL)
     {
       return 0;
     }
+    
     int l=solve(root->left,maxi);
     int r=solve(root->right,maxi);
     
     maxi=max(maxi,l+r);
-    return (1+max(l,r));
+    return 1+max(l,r);
+    
   }
-  
     int diameterOfBinaryTree(TreeNode* root) {
       
       int maxi=0;
-      
       int x=solve(root,maxi);
       return maxi;
         
