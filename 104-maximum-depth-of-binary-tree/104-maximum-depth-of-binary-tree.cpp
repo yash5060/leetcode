@@ -12,21 +12,19 @@
 class Solution {
 public:
   
-  int ans(TreeNode *root)
+  int height (TreeNode * root)
   {
     if(root==NULL)
-    {
       return 0;
-    }
-    
-    int l=ans(root->left);
-    int r=ans(root->right);
+    int l=height(root->left);
+    int r=height(root->right);
     
     return (1+max(l,r));
   }
-  
     int maxDepth(TreeNode* root) {
+      
+      return height(root);
+      
         
-      return ans(root);
     }
 };
