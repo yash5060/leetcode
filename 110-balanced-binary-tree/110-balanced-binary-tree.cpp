@@ -11,21 +11,21 @@
  */
 class Solution {
 public:
-    int ans(TreeNode *root)
+  
+  int ans(TreeNode *root)
   {
     if(root==NULL)
     {
       return 0;
     }
-    
     int l=ans(root->left);
     int r=ans(root->right);
     
-    if(l==-1 ||r==-1)
+    if(l==-1||r==-1)
     {
       return -1;
     }
-      
+    
     if(abs(l-r)>1)
     {
       return -1;
@@ -35,9 +35,11 @@ public:
   }
     bool isBalanced(TreeNode* root) {
       
-      int x=ans(root);
-      if(x==-1)
+      int a=ans(root);
+      if(a==-1)
+      {
         return false;
-      return true;
+      }
+        return true;
     }
 };
