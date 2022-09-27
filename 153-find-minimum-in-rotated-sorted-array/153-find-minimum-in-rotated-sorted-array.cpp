@@ -7,7 +7,7 @@ public:
       int mid;
       
       
-      while(st<ed)
+      while(st<=ed)
       {
          mid=((st+ed)/2);
         
@@ -26,7 +26,7 @@ public:
         }
       }
       
-      return nums[st];
+      return -1;
         
     }
 };
