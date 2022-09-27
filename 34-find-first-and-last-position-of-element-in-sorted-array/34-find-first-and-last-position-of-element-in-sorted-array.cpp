@@ -1,28 +1,66 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        return {BinarySearch(nums, target, "FIRST"), BinarySearch(nums, target, "LAST")};
-    }
-    
-    int BinarySearch(vector<int> nums, int num, string find) {
-        int left = 0, right = nums.size() - 1, mid;
-        int result = -1;
-
-        while (left <= right) {
-            mid = (left + right) / 2;
-
-            if (nums[mid] == num) {
-                result = mid;
-                (find == "FIRST") ? right = mid - 1 : left = mid + 1;
-            }
-            else if (nums[mid] > num) {
-                right = mid - 1;
-            }
-            else {
-                left = mid + 1;
-            }
+        
+      //first
+      
+      int st=0;
+      int ed=nums.size()-1;
+      int r1=-1;
+      vector<int>ans;
+      
+      while(st<=ed)
+      {
+        int mid=(st+ed)/2;
+        
+        if(nums[mid]==target)
+        {
+          r1=mid;
+          // break;
+          ed=mid-1;
         }
-
-        return result;
+        else if(nums[mid]<target)
+        {
+          st=mid+1;
+        }
+        else if(nums[mid]>target)
+        {
+          ed=mid-1;
+        }
+        cout<<r1<<" ";
+      }
+       ans.push_back(r1);
+      
+      //second
+      
+      st=0;
+      ed=nums.size()-1;
+      int r2=-1;
+      
+       while(st<=ed)
+      {
+        int mid=(st+ed)/2;
+        
+        if(nums[mid]==target)
+        {
+         
+          r2=mid;
+          // break;
+          st=mid+1;
+         cout<<r2<<" "<<"abc"<<" "; 
+        }
+        else if(nums[mid]<target)
+        {
+          st=mid+1;
+        }
+        else if(nums[mid]>target)
+        {
+          ed=mid-1;
+        }
+         cout<<r2<<" ";
+      }
+      
+      ans.push_back(r2);
+       return ans;
     }
 };
